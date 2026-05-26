@@ -49,3 +49,28 @@ Arduino Leonardo
 Keyboard Input
      ↓
 PC Fighting Game
+ ```
+##실행 방법
+
+Arduino IDE를 설치합니다.
+arduino/pressure-controller.ino 파일을 엽니다.
+보드를 Arduino Leonardo로 선택합니다.
+
+#사용법
+
+입력 장치	키보드 입력	역할
+압력 센서 1	A	공격 1
+압력 센서 2	S	공격 2
+압력 센서 3	D	공격 3
+버튼 위	↑	위 이동
+버튼 아래	↓	아래 이동
+버튼 왼쪽	←	왼쪽 이동
+버튼 오른쪽	→	오른쪽 이동
+
+##향후 개선 계획
+
+ESP32-CAM을 활용한 동작 인식 추가
+게임 화면과 센서 입력 동기화
+LED 피드백 추가
+부저 효과음 추가
+모바일 터치 조작 지원
