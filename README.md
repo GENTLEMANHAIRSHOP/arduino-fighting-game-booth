@@ -12,27 +12,16 @@
 
 Arduino Leonardo의 Keyboard HID 기능을 활용하여 센서 입력을 컴퓨터의 키보드 입력처럼 인식하게 만들었습니다.
 
-## Demo
+## Demo Flow
 
-사용자가 인형을 펀치하거나 발로 차면 압력 센서가 입력을 감지하고,  
-Arduino Leonardo가 이를 키보드 입력으로 변환하여 PC 격투 게임을 조작합니다.
+이 프로젝트는 실제 몸동작을 키보드 입력으로 변환하는 방식으로 작동합니다.
 
 ```txt
-Punch / Kick
-     ↓
-Pressure Sensor
-     ↓
-Arduino Leonardo
-     ↓
-Keyboard Input
-     ↓
-PC Fighting Game
-```
-
-> 데모 이미지 또는 GIF를 추가하면 프로젝트 완성도를 더 잘 보여줄 수 있습니다.
-
-```md
-![demo](docs/demo.gif)
+1. 사용자가 인형을 펀치하거나 발로 참
+2. 압력 센서가 충격을 감지
+3. Arduino Leonardo가 센서 값을 읽음
+4. 설정된 기준값을 넘으면 키보드 입력 전송
+5. PC 게임에서 공격/이동 입력으로 처리
 ```
 
 ## 제작 목적
@@ -100,10 +89,6 @@ Arduino Leonardo는 HID Keyboard 기능을 지원하기 때문에, 센서 입력
 arduino-fighting-game-booth/
 ├─ arduino/
 │  └─ pressure-controller.ino
-├─ docs/
-│  ├─ circuit.png
-│  ├─ prototype.jpg
-│  └─ demo.gif
 └─ README.md
 ```
 
