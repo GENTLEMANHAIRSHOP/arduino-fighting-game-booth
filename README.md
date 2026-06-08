@@ -12,6 +12,29 @@
 
 Arduino Leonardo의 Keyboard HID 기능을 활용하여 센서 입력을 컴퓨터의 키보드 입력처럼 인식하게 만들었습니다.
 
+## Demo
+
+사용자가 인형을 펀치하거나 발로 차면 압력 센서가 입력을 감지하고,  
+Arduino Leonardo가 이를 키보드 입력으로 변환하여 PC 격투 게임을 조작합니다.
+
+```txt
+Punch / Kick
+     ↓
+Pressure Sensor
+     ↓
+Arduino Leonardo
+     ↓
+Keyboard Input
+     ↓
+PC Fighting Game
+```
+
+> 데모 이미지 또는 GIF를 추가하면 프로젝트 완성도를 더 잘 보여줄 수 있습니다.
+
+```md
+![demo](docs/demo.gif)
+```
+
 ## 제작 목적
 
 - 학교 축제에서 관람객이 직접 참여할 수 있는 체험형 부스 제작
@@ -29,48 +52,65 @@ Arduino Leonardo의 Keyboard HID 기능을 활용하여 센서 입력을 컴퓨�
 
 ## 사용 부품
 
-- Arduino Leonardo
-- 압력 감지 센서
-- 버튼
-- 점퍼선
-- USB 케이블
-- 인형 또는 쿠션
-- PC 또는 노트북
+| 부품 | 역할 |
+|---|---|
+| Arduino Leonardo | 센서 입력을 키보드 입력으로 변환 |
+| 압력 감지 센서 | 펀치/킥 입력 감지 |
+| 버튼 | 방향키 입력 |
+| 점퍼선 | 회로 연결 |
+| USB 케이블 | 아두이노와 PC 연결 |
+| 인형 또는 쿠션 | 사용자가 직접 타격하는 입력 장치 |
+| PC 또는 노트북 | 격투 게임 실행 |
 
-## 시스템 구조
+## Hardware Setup
 
 ```txt
-Punch / Kick
-     ↓
-Pressure Sensor
-     ↓
-Arduino Leonardo
-     ↓
-Keyboard Input
-     ↓
-PC Fighting Game
- ```
-##실행 방법
+[Pressure Sensor / Button]
+          ↓
+[Arduino Leonardo]
+          ↓ USB HID Keyboard
+[PC Fighting Game]
+```
 
-Arduino IDE를 설치합니다.
-arduino/pressure-controller.ino 파일을 엽니다.
-보드를 Arduino Leonardo로 선택합니다.
+Arduino Leonardo는 HID Keyboard 기능을 지원하기 때문에, 센서 입력을 일반 키보드 입력처럼 PC에 전달할 수 있습니다.
 
-#사용법
+## 실행 방법
 
-입력 장치	키보드 입력	역할
-압력 센서 1	A	공격 1
-압력 센서 2	S	공격 2
-압력 센서 3	D	공격 3
-버튼 위	↑	위 이동
-버튼 아래	↓	아래 이동
-버튼 왼쪽	←	왼쪽 이동
-버튼 오른쪽	→	오른쪽 이동
+1. Arduino IDE를 설치합니다.
+2. `arduino/pressure-controller.ino` 파일을 엽니다.
+3. 보드를 `Arduino Leonardo`로 선택합니다.
+4. 코드를 업로드합니다.
+5. PC 게임 또는 웹 게임에서 키 입력이 정상적으로 동작하는지 확인합니다.
 
-##향후 개선 계획
+## 사용법
 
-ESP32-CAM을 활용한 동작 인식 추가
-게임 화면과 센서 입력 동기화
-LED 피드백 추가
-부저 효과음 추가
-모바일 터치 조작 지원
+| 입력 장치 | 키보드 입력 | 역할 |
+|---|---|---|
+| 압력 센서 1 | A | 공격 1 |
+| 압력 센서 2 | S | 공격 2 |
+| 압력 센서 3 | D | 공격 3 |
+| 버튼 위 | ↑ | 위 이동 |
+| 버튼 아래 | ↓ | 아래 이동 |
+| 버튼 왼쪽 | ← | 왼쪽 이동 |
+| 버튼 오른쪽 | → | 오른쪽 이동 |
+
+## Project Structure
+
+```txt
+arduino-fighting-game-booth/
+├─ arduino/
+│  └─ pressure-controller.ino
+├─ docs/
+│  ├─ circuit.png
+│  ├─ prototype.jpg
+│  └─ demo.gif
+└─ README.md
+```
+
+## 향후 개선 계획
+
+- [ ] ESP32-CAM을 활용한 동작 인식 추가
+- [ ] 게임 화면과 센서 입력 동기화
+- [ ] LED 피드백 추가
+- [ ] 부저 효과음 추가
+- [ ] 모바일 터치 조작 지원
